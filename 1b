@@ -1,0 +1,47 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+
+# Define Data
+X = np.array([
+    [2.5, 2.4],
+    [1.5, 1.9],
+    [3.5, 3.0],
+    [2.0, 2.1]
+])
+
+# Define colors for each data point
+colors = ['red', 'green', 'black', 'blue']
+
+# Plot original 2D data
+plt.figure(figsize=(8, 4))
+plt.subplot(1, 2, 1)
+
+for i, (x, y) in enumerate(X):
+    plt.scatter(x, y, color=colors[i], label=f'Example {i+1}', alpha=0.8)
+
+plt.title("Original 2D Data")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.legend()
+
+# Perform PCA to reduce data to 1D
+pca = PCA(n_components=1)
+X_projected = pca.fit_transform(X)
+
+# Plot projected 1D data
+plt.subplot(1, 2, 2)
+
+for i, x in enumerate(X_projected):
+    plt.scatter(x, 0, color=colors[i], label=f'Example {i+1}', alpha=0.8)
+
+plt.title("Projected 1D Data")
+plt.xlabel("Principal Component")
+plt.yticks([])
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+# Print explained variance ratio
+print("Explained variance ratio:", pca.explained_variance_ratio_)
