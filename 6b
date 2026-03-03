@@ -1,0 +1,26 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+
+# Create DataFrame
+df = pd.DataFrame({
+    'A': [1,2,3,4,5,6,7,8],
+    'B': [2,3,4,5,6,7,8,9],
+    'C': [5,6,7,8,9,10,11,12],
+    'D': [10,20,30,40,50,60,70,80]
+})
+
+# Apply PCA (reduce 4D to 2D)
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(df)
+
+# Plot PCA result
+plt.figure(figsize=(6,5))
+plt.scatter(X_pca[:, 0], X_pca[:, 1])
+plt.title("PCA on A, B, C, D Dataset")
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.show()
+
+# Print explained variance
+print("Explained variance ratio:", pca.explained_variance_ratio_)
