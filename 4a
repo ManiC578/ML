@@ -1,0 +1,15 @@
+import numpy as np
+arr = np.array([[1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]])
+print("Original 3x3 Array:")
+print(arr)
+firstrows = arr[0:2, :]
+print("\nFirst Two Rows:")
+print(firstrows)
+firstcolumns = arr[:, 0:2]
+print("\nFirst Two Columns:")
+print(firstcolumns)
+last_row = arr[-1, :]
+print("\nLast Row:")
+print(last_row)
