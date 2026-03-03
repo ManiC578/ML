@@ -1,0 +1,22 @@
+import numpy as np
+# Create a NumPy array
+arr = np.array([10, 20, 30, 40, 50, 60, 70, 80])
+print("Original Array:")
+print(arr)
+# 1️⃣ SLICING
+print("\nSlicing Examples:")
+print("First 4 elements:", arr[0:4])
+print("Elements from index 2 to 6:", arr[2:6])
+print("Every 2nd element:", arr[::2])
+print("Last 3 elements:", arr[-3:])
+# 2️⃣ BOOLEAN INDEXING
+print("\nBoolean Indexing Examples:")
+# Condition: elements greater than 40
+result1 = arr[arr > 40]
+print("Elements greater than 40:", result1)
+# Condition: even numbers
+result2 = arr[arr % 2 == 0]
+print("Even numbers:", result2)
+# Condition: elements between 20 and 60
+result3 = arr[(arr >= 20) & (arr <= 60)]
+print("Elements between 20 and 60:", result3)
