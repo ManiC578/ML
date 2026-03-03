@@ -1,0 +1,19 @@
+Dataset: Play Tennis Dataset.
+
+SAME AS 5B
+
+Entropy                         	Gini Index
+Uses log formula	                Uses squared probabilities
+Measures information gain	          Measures impurity
+Slightly slower	                   Faster
+Used in ID3	                      Used in CART
+
+Rules for Comparing Decision Tree Criteria
+
+1.	Build two models using different criteria (entropy and gini).
+2.	Train both models on same dataset.
+3.	Evaluate using same test data.
+4.	Compare accuracy scores.
+5.	Choose the criterion with better performance.
+6.	Also compare training time and tree complexity if needed.
+
