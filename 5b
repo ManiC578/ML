@@ -1,0 +1,33 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import LabelEncoder
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.model_selection import train_test_split
+from sklearn import metrics
+data = {
+    'outlook': ['Sunny','Sunny','Overcast','Rainy','Rainy','Rainy','Overcast','Sunny','Sunny','Rainy','Sunny','Overcast','Overcast','Rainy'],
+    'temp': ['Hot','Hot','Hot','Mild','Cool','Cool','Cool','Mild','Cool','Mild','Mild','Mild','Hot','Mild'],
+    'humidity': ['High','High','High','High','Normal','Normal','Normal','High','Normal','Normal','Normal','High','Normal','High'],
+    'wind': ['Weak','Strong','Weak','Weak','Weak','Strong','Strong','Weak','Weak','Weak','Strong','Strong','Weak','Strong'],
+    'play': ['No','No','Yes','Yes','Yes','No','Yes','No','Yes','Yes','Yes','Yes','Yes','No']
+}
+df = pd.DataFrame(data)
+le = LabelEncoder()
+for col in df.columns:
+    df[col] = le.fit_transform(df[col])
+X = df.drop('play', axis=1)
+y = df['play']
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=0
+)
+model = DecisionTreeClassifier(criterion="gini", random_state=0)
+model.fit(X_train, y_train)
+plt.figure(figsize=(8,6))
+plot_tree(model,
+          feature_names=X.columns,
+          class_names=["No", "Yes"],
+          filled=True)
+plt.title("Decision Tree using Gini Index")
+plt.show()
+y_pred = model.predict(X_test)
+print("\nModel Accuracy:", accuracy_score(y_test, y_pred))
