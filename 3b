@@ -1,0 +1,40 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.datasets import load_iris
+
+# Load dataset
+iris = load_iris()
+
+# Take first two features
+X = iris.data[:, :2]
+y = iris.target
+
+colors = ['red', 'green', 'blue']
+
+plt.figure(figsize=(8, 4))
+
+# ---- Original 2D Data ----
+plt.subplot(1, 2, 1)
+
+for i, (x1, x2) in enumerate(X):
+    plt.scatter(x1, x2, color=colors[y[i]], alpha=0.8)
+
+plt.title("Original 2D Iris Data")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+
+# ---- PCA Projection to 1D ----
+pca = PCA(n_components=1)
+X_projected = pca.fit_transform(X)
+
+plt.subplot(1, 2, 2)
+
+for i, x in enumerate(X_projected):
+    plt.scatter(x, 0, color=colors[y[i]], alpha=0.8)
+
+plt.title("Projected 1D Data (PCA)")
+plt.xlabel("Principal Component 1")
+
+plt.tight_layout()
+plt.show()
