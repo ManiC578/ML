@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+data = {
+    'outlook': [2,2,0,1,1,1,0,2,2,1,2,0,0,1],
+    'temp': [1,1,1,2,0,0,0,2,0,2,2,2,1,2],
+    'humidity': [0,0,0,0,1,1,1,0,1,1,1,0,1,0],
+    'wind': [1,0,1,1,1,0,0,1,1,1,0,0,1,0],
+    'play': [0,0,1,1,1,0,1,0,1,1,1,1,1,0]
+}
+df = pd.DataFrame(data)
+X = df.drop('play', axis=1)
+y = df['play']
+model = DecisionTreeClassifier(criterion="entropy")
+model.fit(X, y)
+plt.figure(figsize=(8,6))
+plot_tree(model,
+          feature_names=X.columns,
+          class_names=["No", "Yes"],
+          filled=True)
+plt.title("Decision Tree - Play Tennis")
+plt.show()
+new_sample = [[2, 2, 0, 1]]
+prediction = model.predict(new_sample)
+print("Predicted Class (0=No, 1=Yes):", prediction[0])
