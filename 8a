@@ -1,0 +1,24 @@
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+
+# Create sample dataset
+data = {
+    'Name': ['Asha', 'Ravi', 'Kiran', 'Meena', 'Ravi'],
+    'Gender': ['Female', 'Male', 'Male', 'Female', 'Male'],
+    'Department': ['HR', 'IT', 'Finance', 'HR', 'IT']
+}
+
+df = pd.DataFrame(data)
+
+print("Original Data:")
+print(df)
+
+# Create LabelEncoder object
+le = LabelEncoder()
+
+# Apply Label Encoding on categorical columns
+df['Gender'] = le.fit_transform(df['Gender'])
+df['Department'] = le.fit_transform(df['Department'])
+
+print("\nAfter Label Encoding:")
+print(df)
