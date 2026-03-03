@@ -1,0 +1,9 @@
+same as 1b
+RULES
+1.	Arrange dataset in matrix form.
+2.	Compute mean of each feature.
+3.	Subtract mean to center data.
+4.	Compute covariance matrix.
+5.	Calculate eigenvalues and eigenvectors.
+6.	Select eigenvector with highest eigenvalue.
+7.	Project data onto selected principal component.
