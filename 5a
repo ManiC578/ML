@@ -1,0 +1,6 @@
+import pandas as pd
+df = pd.read_csv("C:/Users /Downloads/archive (4)/Iris.csv")
+filtered_data = df[df["SepalLengthCm"] > 5.0]
+print(filtered_data)
+print("\nSpecies Count:")
+print(df["Species"].value_counts())
