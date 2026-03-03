@@ -1,0 +1,23 @@
+import pandas as pd
+# Create a Pandas Series
+data_series = pd.Series([10, 20, 30, 40, 50])
+print("Pandas Series:")
+print(data_series)
+# Create a Pandas DataFrame
+data = {
+    "Name": ["Asha", "Ravi", "Kiran", "Meena"],
+    "Age": [20, 22, 21, 23],
+    "Marks": [85, 90, 78, 88]
+}
+df = pd.DataFrame(data)
+print("\nPandas DataFrame:")
+print(df)
+# head() Operation
+print("\nHead of DataFrame:")
+print(df.head())
+# info() Operation
+print("\nInfo of DataFrame:")
+print(df.info())
+# describe() Operation
+print("\nDescribe DataFrame:")
+print(df.describe())
