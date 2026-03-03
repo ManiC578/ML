@@ -1,0 +1,30 @@
+import pandas as pd
+
+# Create sample dataset
+data = {
+    'Name': ['Asha', 'Ravi', 'Kiran', 'Meena', 'Arun'],
+    'Age': [21, 23, 22, 24, 20],
+    'Marks': [85, 90, 78, 88, 76],
+    'Department': ['CS', 'IT', 'CS', 'ECE', 'IT']
+}
+
+df = pd.DataFrame(data)
+
+# 1 head()
+print("First 5 Rows:")
+print(df.head())
+
+# 2 info()
+print("\nDataset Information:")
+print(df.info())
+
+# 3 describe()
+print("\nStatistical Summary:")
+print(df.describe())
+
+# 4 Conditional Filtering
+print("\nStudents with Marks > 80:")
+print(df[df['Marks'] > 80])
+
+print("\nStudents from IT Department:")
+print(df[df['Department'] == 'IT'])
