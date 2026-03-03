@@ -1,0 +1,17 @@
+import numpy as np
+arr = np.array([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+print("Original Array:")
+print(arr)
+print("\nIndexing Examples:")
+print("Element at index 0:", arr[0])
+print("Element at index 4:", arr[4])
+print("Last element:", arr[-1])
+print("\nSlicing Examples:")
+print("Elements from index 2 to 5:", arr[2:6])
+print("First 5 elements:", arr[:5])
+print("Elements from index 5 to end:", arr[5:])
+print("Every 2nd element:", arr[::2])
+arr[0] = 999           # Modify first element
+arr[3:6] = [111,222,333]  # Modify multiple elements using slicing
+print("\nModified Array:")
+print(arr)
